@@ -9,10 +9,15 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class SignalData {
 
-    private double[] dots;
+    private double[][] coordinates;
 
-    public SignalData(double[] dots) {
-        this.dots = new double[dots.length];
-        System.arraycopy(dots, 0, this.dots, 0, dots.length);
+    public SignalData(double[][] coordinates) {
+        this.coordinates = new double[coordinates.length][2];
+        for (int i = 0; i < coordinates.length; i++) {
+            this.coordinates[i] = new double[2];
+            for (int j = 0; j < 2; j++) {
+                this.coordinates[i][j] = coordinates[i][j];
+            }
+        }
     }
 }

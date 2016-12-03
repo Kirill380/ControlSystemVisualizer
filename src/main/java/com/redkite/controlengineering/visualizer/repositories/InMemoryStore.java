@@ -1,7 +1,9 @@
 package com.redkite.controlengineering.visualizer.repositories;
 
+import com.redkite.controlengineering.visualizer.OutputSignalCalculator;
 import com.redkite.controlengineering.visualizer.model.Parameters;
 import com.redkite.controlengineering.visualizer.model.SignalData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -18,12 +20,14 @@ public class InMemoryStore implements Store {
     private final String INPUT_SIGNAL = "input_signal";
     private final String PARAMETERS = "parameters";
 
+    @Autowired
+    private OutputSignalCalculator calculator;
 
     @PostConstruct
     public void init() {
         Parameters p = Parameters.getDefault();
         storeParameters(p);
-        storeOutPutSignal(functionToSignalData(p.getFrom(), p.getTo(), p.getStep(), p.getFunction().d()));
+        storeOutPutSignal(calculator.calculate(p));
     }
 
     @Override
@@ -53,11 +57,19 @@ public class InMemoryStore implements Store {
     }
 
     private SignalData functionToSignalData(int from, int to, double step, Function<Double, Double> f) {
-        return new SignalData(IntStream
+        double[] y = IntStream
                 .range(from, (int) ((to - from) / step))
                 .mapToDouble(v -> v * step)
                 .map(f::apply)
-                .toArray()
-        );
+                .toArray();
+
+        double[][] coordinates = new double[y.length][2];
+        for (int i = 0; i < y.length; i++) {
+            coordinates[i] = new double[2];
+            coordinates[i][0] = i * step;
+            coordinates[i][1] = y[i];
+        }
+
+        return new SignalData(coordinates);
     }
 }

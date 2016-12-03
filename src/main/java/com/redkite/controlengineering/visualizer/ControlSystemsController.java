@@ -12,6 +12,9 @@ public class ControlSystemsController {
     @Autowired
     private Store store;
 
+    @Autowired
+    private OutputSignalCalculator calculator;
+
     @RequestMapping(value = "/signal/input", method = RequestMethod.GET)
     public SignalData getInputSignal() {
         return store.getInputSignal();
@@ -22,8 +25,17 @@ public class ControlSystemsController {
         return store.getOutputSignal();
     }
 
+
+    @RequestMapping(value = "/signal/parameters", method = RequestMethod.GET)
+    public Parameters getParameters() {
+        return store.getParameters();
+    }
+
+
     @RequestMapping(value = "/calculate", method = RequestMethod.POST)
     public void calculate(@RequestBody Parameters parameters) {
-
+        SignalData outputSignal = calculator.calculate(parameters);
+        store.storeParameters(parameters);
+        store.storeOutPutSignal(outputSignal);
     }
 }

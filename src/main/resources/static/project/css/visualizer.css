@@ -1,0 +1,68 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.plot-table {
+    border-collapse: collapse;
+    width: 100px;
+}
+
+.plot-table td {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    padding: 2px 5px 2px 2px;
+    text-align: right;
+}
+
+.plot-table th {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    padding: 2px 5px 2px 2px;
+    background-color: #d3d3d3;
+    text-align: center;
+}
+
+.item__plot,
+.item__plot-table {
+    height: 400px;
+}
+
+.item__plot-table {
+    height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    float: left;
+    margin-left: 50px;
+    border-left: 1px solid black;
+}
+
+.item__plot {
+    width: 700px;
+    float: left;
+}
+
+.item {
+    padding: 10px;
+}
+.item::after {
+    clear: both;
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+.plot-container__item {
+    background-color: white;
+    width: 930px;
+    margin: 10px;
+}
+
+html, /*todo figure out hot to remove lines at top and bottom*/
+.plot-container {
+    background-color: #bdbdbd;
+}
+
