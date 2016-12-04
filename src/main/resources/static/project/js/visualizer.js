@@ -1,29 +1,32 @@
 (function ($) {
 
+
+    $.ajax({
+        url: "/signal/parameters",
+        method: "GET",
+        dataType: "json",
+        success: function (parameters) {
+            var form = $(".jsForm");
+
+            for(var name in parameters) {
+                if(name == "function") {
+                    form.find("select[name=function]").val(parameters[name]);
+                } else {
+                    form.find("input[name=" + name + "]").val(parameters[name]);
+                }
+            }
+
+        }
+    });
+
+
     $.ajax({
         url: "/signal/input",
         method: "GET",
         dataType: "json",
         success: function (signalData) {
             createTable("#input .table", signalData.coordinates);
-            Highcharts.chart('input_signal', {
-                title: {
-                    text: 'Input signal',
-                    x: -20 //center
-                },
-                credits: {
-                    enabled: false
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-                },
-                series: [{
-                    data: signalData.coordinates
-                }]
-            });
+            drawPlot('input_signal', 'Input signal',  signalData.coordinates);
         }
     });
 
@@ -33,24 +36,7 @@
         dataType: "json",
         success: function (signalData) {
             createTable("#output .table", signalData.coordinates);
-            Highcharts.chart('output_signal', {
-                title: {
-                    text: 'Output signal',
-                    x: -20 //center
-                },
-                credits: {
-                    enabled: false
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
-                },
-                series: [{
-                    data: signalData.coordinates
-                }]
-            });
+            drawPlot('output_signal', 'Output signal',  signalData.coordinates);
         }
     });
 
@@ -94,6 +80,27 @@
                             "</tr>";
             table$.append(template)
         }
+    }
+
+    function drawPlot(selector, title, coordinates) {
+        Highcharts.chart(selector, {
+            title: {
+                text: title,
+                x: -20 //center
+            },
+            credits: {
+                enabled: false
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                data: coordinates
+            }]
+        });
     }
 
 })(jQuery);
