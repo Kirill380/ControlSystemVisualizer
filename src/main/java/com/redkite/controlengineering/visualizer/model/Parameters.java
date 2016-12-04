@@ -11,7 +11,7 @@ public class Parameters {
 
     private Double k3;
 
-    private Double T;
+    private Double t;
 
     private Double ksi;
 

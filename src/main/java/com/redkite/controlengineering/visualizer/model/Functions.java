@@ -3,6 +3,7 @@ package com.redkite.controlengineering.visualizer.model;
 
 import java.util.function.Function;
 
+
 public enum Functions {
     SIN(Math::sin, Math::cos),
     EXP(Math::exp, Math::exp),
@@ -24,4 +25,16 @@ public enum Functions {
         return derivative;
     }
 
+    public static Functions parse(String f) {
+        switch (f) {
+            case "sin":
+                return SIN;
+            case "cos":
+                return COS;
+            case "exp":
+                return EXP;
+            default:
+                return SIN;
+        }
+    }
 }
