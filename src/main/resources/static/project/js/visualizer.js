@@ -62,6 +62,9 @@
                 setTimeout(function () {
                     location.reload();
                 }, 1000)
+            },
+            error: function (data) {
+                alert(data.responseText);
             }
         });
     });
