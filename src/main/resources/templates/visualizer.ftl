@@ -17,7 +17,7 @@
         <div id="input" class="plot-container__item">
             <div class="item">
                 <div class="item__plot">
-                    <div id="input_signal" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <div id="input_signal" style="min-width: 310px; height: 350px; margin: 0 auto"></div>
                 </div>
                 <div class="item__plot-table">
                     <table class="table table-bordered">
@@ -32,7 +32,7 @@
         <div id="output" class="plot-container__item">
             <div class="item">
                 <div class="item__plot">
-                    <div id="output_signal" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <div id="output_signal" style="min-width: 310px; height: 350px; margin: 0 auto"></div>
                 </div>
                 <div class="item__plot-table">
                     <table class="table table-bordered">
@@ -50,52 +50,53 @@
             <div class="form-group">
                 <label for="func">Input fucntion</label>
                 <select class="form-control" name="function" id="func">
-                    <option value="sin">sin(t)</option>
-                    <option value="cos">cos(t)</option>
-                    <option value="exp">exp(t)</option>
+                    <option value="SIN">sin(t)</option>
+                    <option value="COS">cos(t)</option>
+                    <option value="EXP">exp(t)</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="k1">k1</label>
-                <input type="number" step="any" class="form-control" id="k1">
+                <input type="number" step="any" name="k1" class="form-control" id="k1">
             </div>
             <div class="form-group">
                 <label for="k2">k2</label>
-                <input type="number" step="any" class="form-control" id="k2">
+                <input type="number" step="any" name="k2" class="form-control" id="k2">
             </div>
             <div class="form-group">
                 <label for="k3">k3</label>
-                <input type="number" step="any" class="form-control" id="k3">
+                <input type="number" step="any" name="k3" class="form-control" id="k3">
             </div>
             <div class="form-group">
                 <label for="T">T</label>
-                <input type="number" step="any" class="form-control" id="T">
+                <input type="number" step="any" name="t" class="form-control" id="T">
             </div>
             <div class="form-group">
                 <label for="ksi">ksi</label>
-                <input type="number" step="any" class="form-control" id="ksi">
+                <input type="number" step="any"  name="ksi" class="form-control" id="ksi">
             </div>
             <div class="form-group">
                 <label for="from">from</label>
-                <input type="number" class="form-control" id="from">
+                <input type="number"  name="from" class="form-control" id="from">
             </div>
 
             <div class="form-group">
                 <label for="to">to</label>
-                <input type="number" class="form-control" id="to">
+                <input type="number" name="to" class="form-control" id="to">
             </div>
 
             <div class="form-group">
                 <label for="step">step</label>
-                <input type="number" step="any" class="form-control" id="step">
+                <input type="number" name="step" step="any" class="form-control" id="step">
             </div>
 
+            <input type="submit" class="jsSubmit" style="display: none">
         </form>
     </div>
     <div class="clear-fix"></div>
     <div class="controls">
         <button type="button" class="jsCalculate btn btn-default">Calculate</button>
-        <button type="button" class="jsClear btn btn-default">Clear</button>
+        <button type="button" class="jsDefault btn btn-default">Reset to default</button>
     </div>
 
 </div>
