@@ -39,7 +39,7 @@ public class ControlSystemsController {
         store.storeOutPutSignal(outputSignal);
     }
 
-    @RequestMapping(value = "/default", method = RequestMethod.POST)
+    @RequestMapping(value = "/signal/default", method = RequestMethod.POST)
     public void resetToDefault() {
         SignalData outputSignal = calculator.calculate(Parameters.getDefault());
         store.storeParameters(Parameters.getDefault());

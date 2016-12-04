@@ -8,8 +8,8 @@
         success: function (parameters) {
             var form = $(".jsForm");
 
-            for(var name in parameters) {
-                if(name == "function") {
+            for (var name in parameters) {
+                if (name == "function") {
                     form.find("select[name=function]").val(parameters[name]);
                 } else {
                     form.find("input[name=" + name + "]").val(parameters[name]);
@@ -26,7 +26,7 @@
         dataType: "json",
         success: function (signalData) {
             createTable("#input .table", signalData.coordinates);
-            drawPlot('input_signal', 'Input signal',  signalData.coordinates);
+            drawPlot('input_signal', 'Input signal', signalData.coordinates);
         }
     });
 
@@ -36,18 +36,18 @@
         dataType: "json",
         success: function (signalData) {
             createTable("#output .table", signalData.coordinates);
-            drawPlot('output_signal', 'Output signal',  signalData.coordinates);
+            drawPlot('output_signal', 'Output signal', signalData.coordinates);
         }
     });
 
 
     $(".jsForm").on("submit", function (e) {
         e.preventDefault();
-        var $f= $(this);
+        var $f = $(this);
         var serializeArray = $f.serializeArray();
         var params = {};
 
-        for(var i =0; i < serializeArray.length; i++) {
+        for (var i = 0; i < serializeArray.length; i++) {
             var field = serializeArray[i];
             params[field.name] = field.value;
         }
@@ -56,12 +56,12 @@
             url: "/calculate",
             method: "POST",
             contentType: "application/json",
-            data : JSON.stringify(params),
+            data: JSON.stringify(params),
             success: function (data) {
                 console.log("success");
                 setTimeout(function () {
                     location.reload();
-                }, 2000)
+                }, 1000)
             }
         });
     });
@@ -71,13 +71,26 @@
         $(".jsSubmit").click();
     });
 
+    $(".jsDefault").on("click", function () {
+        $.ajax({
+            url: "/signal/default",
+            method: "POST",
+            success: function (data) {
+                console.log("success");
+                setTimeout(function () {
+                    location.reload();
+                }, 1000)
+            }
+        });
+    });
+
     function createTable(selector, coordinates) {
         var table$ = $(selector);
-        for(var i = 0; i < coordinates.length; i++) {
+        for (var i = 0; i < coordinates.length; i++) {
             var template = "<tr>" +
-                                "<td>" + coordinates[i][0].toFixed(3) + "</td>" +
-                                "<td>" + coordinates[i][1].toFixed(3) + "</td>" +
-                            "</tr>";
+                "<td>" + coordinates[i][0].toFixed(3) + "</td>" +
+                "<td>" + coordinates[i][1].toFixed(3) + "</td>" +
+                "</tr>";
             table$.append(template)
         }
     }
