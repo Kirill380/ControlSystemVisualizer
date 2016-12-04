@@ -38,4 +38,11 @@ public class ControlSystemsController {
         store.storeParameters(parameters);
         store.storeOutPutSignal(outputSignal);
     }
+
+    @RequestMapping(value = "/default", method = RequestMethod.POST)
+    public void resetToDefault() {
+        SignalData outputSignal = calculator.calculate(Parameters.getDefault());
+        store.storeParameters(Parameters.getDefault());
+        store.storeOutPutSignal(outputSignal);
+    }
 }
