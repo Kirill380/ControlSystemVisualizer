@@ -5,7 +5,7 @@ html, body {
 
 .plot-table {
     border-collapse: collapse;
-    width: 100px;
+    width: 120px;
 }
 
 .plot-table td {
@@ -36,7 +36,6 @@ html, body {
     overflow-x: hidden;
     float: left;
     margin-left: 50px;
-    border-left: 1px solid black;
 }
 
 .item__plot {
@@ -47,6 +46,7 @@ html, body {
 .item {
     padding: 10px;
 }
+
 .item::after {
     clear: both;
     content: ".";
@@ -59,10 +59,50 @@ html, body {
     background-color: white;
     width: 930px;
     margin: 10px;
+    border-radius: 5px;
 }
 
 html, /*todo figure out hot to remove lines at top and bottom*/
-.plot-container {
+.plot-container,
+body {
     background-color: #bdbdbd;
 }
 
+.clear-fix {
+    clear: both;
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+}
+
+.plot-container {
+    float: left;
+}
+
+.input-parameters {
+    background-color: white;
+    float: left;
+    margin: 10px;
+    width: 379px;
+    height: 850px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+.input-parameters  form {
+    width: 300px;
+}
+
+.controls {
+    margin: 20px 10px 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.table {
+    margin-bottom: 0;
+}

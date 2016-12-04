@@ -5,7 +5,7 @@
         method: "GET",
         dataType: "json",
         success: function (signalData) {
-            createTable("#input .plot-table", signalData.coordinates);
+            createTable("#input .table", signalData.coordinates);
             Highcharts.chart('input_signal', {
                 title: {
                     text: 'Input signal',
@@ -29,7 +29,7 @@
         method: "GET",
         dataType: "json",
         success: function (signalData) {
-            createTable("#output .plot-table", signalData.coordinates);
+            createTable("#output .table", signalData.coordinates);
             Highcharts.chart('output_signal', {
                 title: {
                     text: 'Output signal',
