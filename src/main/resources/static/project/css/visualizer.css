@@ -14,6 +14,7 @@ html, body {
     border-top: 1px solid black;
     padding: 2px 5px 2px 2px;
     text-align: right;
+    background-color: white;
 }
 
 .plot-table th {
@@ -23,6 +24,7 @@ html, body {
     padding: 2px 5px 2px 2px;
     background-color: #d3d3d3;
     text-align: center;
+    background-color: white;
 }
 
 .item__plot,
@@ -56,7 +58,7 @@ html, body {
 }
 
 .plot-container__item {
-    background-color: white;
+    background-color: #2b908f;
     width: 930px;
     margin: 10px;
     border-radius: 5px;
@@ -65,7 +67,7 @@ html, body {
 html, /*todo figure out hot to remove lines at top and bottom*/
 .plot-container,
 body {
-    background-color: #bdbdbd;
+    background-color: #85bd66;
 }
 
 .clear-fix {
@@ -81,7 +83,7 @@ body {
 }
 
 .input-parameters {
-    background-color: white;
+    background-color: #2b908f;
     float: left;
     margin: 10px;
     width: 379px;
@@ -99,7 +101,7 @@ body {
 .controls {
     margin: 20px 10px 10px;
     padding: 20px;
-    background-color: white;
+    background-color: #2b908f;
     border-radius: 5px;
 }
 

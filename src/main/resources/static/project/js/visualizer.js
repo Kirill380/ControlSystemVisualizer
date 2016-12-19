@@ -226,7 +226,7 @@
         dataType: "json",
         success: function (signalData) {
             createTable("#input .table", signalData.coordinates);
-            drawPlot('input_signal', 'Input signal', signalData.coordinates);
+            drawPlot('input_signal', 'Вхідний сигнал', signalData.coordinates);
         }
     });
 
@@ -236,7 +236,7 @@
         dataType: "json",
         success: function (signalData) {
             createTable("#output .table", signalData.coordinates);
-            drawPlot('output_signal', 'Output signal', signalData.coordinates);
+            drawPlot('output_signal', 'Вихідний сигнал', signalData.coordinates);
         }
     });
 

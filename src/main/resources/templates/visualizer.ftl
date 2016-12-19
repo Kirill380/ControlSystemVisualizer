@@ -20,10 +20,10 @@
                     <div id="input_signal" style="min-width: 310px; height: 350px; margin: 0 auto"></div>
                 </div>
                 <div class="item__plot-table">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="background-color: white">
                         <tr>
                             <th>t</th>
-                            <th>y(t)</th>
+                            <th>y</th>
                         </tr>
                     </table>
                 </div>
@@ -35,10 +35,10 @@
                     <div id="output_signal" style="min-width: 310px; height: 350px; margin: 0 auto"></div>
                 </div>
                 <div class="item__plot-table">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="background-color: white">
                         <tr>
                             <th>t</th>
-                            <th>y(t)</th>
+                            <th>y</th>
                         </tr>
                     </table>
                 </div>
@@ -48,7 +48,7 @@
     <div class="input-parameters">
         <form class="jsForm" action="/calculate" method="POST">
             <div class="form-group">
-                <label for="func">Input fucntion</label>
+                <label for="func">Вхідна функція</label>
                 <select class="form-control" name="function" id="func">
                     <option value="SIN">sin(t)</option>
                     <option value="COS">cos(t)</option>
@@ -95,8 +95,8 @@
     </div>
     <div class="clear-fix"></div>
     <div class="controls">
-        <button type="button" class="jsCalculate btn btn-default">Calculate</button>
-        <button type="button" class="jsDefault btn btn-default">Reset to default</button>
+        <button type="button" class="jsCalculate btn btn-default">Розрахувати</button>
+        <button type="button" class="jsDefault btn btn-default">Повернути до початкових значень</button>
     </div>
 
 </div>
